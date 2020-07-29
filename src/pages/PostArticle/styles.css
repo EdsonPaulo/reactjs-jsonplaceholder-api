@@ -31,11 +31,15 @@
     display: flex;
     align-items: center;
     margin-bottom: 20;
-
 }
 .commentForm {
     margin: 20px 0;
-    width: 100%
+    width: 100%;
+    background-color: white;
+    margin: 15px 0;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 }
 .commentForm TextField {
     width: 100%

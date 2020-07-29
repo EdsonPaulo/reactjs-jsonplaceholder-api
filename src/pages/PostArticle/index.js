@@ -76,7 +76,7 @@ export default function PostArticle() {
                     comments.map(comment => (
                         <div className="comment" key={comment.id}>
                             <div className="commentTop">
-                                <Avatar src="/image.jpg" style={{marginRight: 20}} />
+                                <Avatar src="/image.jpg" style={{ marginRight: 20 }} />
                                 <div>
                                     <Typography variant="h6">{comment.name}</Typography>
                                     <Typography color="textSecondary" variant="subtitle1" gutterBottom>{comment.email}</Typography>
@@ -88,8 +88,13 @@ export default function PostArticle() {
                 }
 
                 <form className="commentForm" noValidate autoComplete="on">
-                    <TextField label="Seu Email" type="email" variant="outlined" />
-                    <TextField label="Sua Mensagem" variant="outlined" />
+                    <Typography color="textSecondary" variant="h6" gutterBottom> Deixe o seu comentário.</Typography>
+
+                    <TextField margin="dense" fullWidth label="Seu Email" type="email" variant="outlined" />
+                    <TextField margin="dense" rows="5" multiline fullWidth label="Sua Mensagem" variant="outlined" />
+                    <div style={{display: "flex", justifyContent: "flex-end", marginTop: 15}}>
+                        <Button color="primary" disabled variant="contained">Comentar</Button>
+                    </div>
                 </form>
             </div>
 
@@ -99,7 +104,7 @@ export default function PostArticle() {
     //renderizar content placeholder enquanto aguarda resposta do fetch
     const renderLoading = () => (
         <div className={styles.skeletonContainer}>
-            <Skeleton variant="rect" width={"100%"} height={50} />
+            <Skeleton variant="rect" width={"100%"} height={400} />
             <div className={styles.divider} />
             <Skeleton variant="rect" width={"70%"} height={40} />
             <div className={styles.divider} />
