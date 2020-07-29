@@ -8,8 +8,8 @@ function App() {
     <>
       <header>
         <AppBar position="fixed">
-          <Toolbar>
-            <Typography variant="h5"> EPG Blog </Typography>
+          <Toolbar style={{display: "flex", justifyContent: "center"}}>
+            <Typography variant="h5">  EPG Blog - Teste Sossego </Typography>
           </Toolbar>
         </AppBar>
       </header>

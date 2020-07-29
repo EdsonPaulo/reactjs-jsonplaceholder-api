@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useHistory, Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import Skeleton from '@material-ui/lab/Skeleton';
 import {
-    Card,
-    CardActions,
-    CardHeader,
-    CardContent,
     Button,
     Avatar,
     Breadcrumbs,
@@ -20,17 +16,13 @@ import './styles.css';
 export default function PostArticle() {
 
     const styles = useStyles()
-    const navigationHistory = useHistory()
+    const { id } = useParams()
     const [post, setPost] = useState({})
     const [comments, setComments] = useState([])
     const [isLoading, setIsLoading] = useState(false)
 
-    const { id } = useParams()
-
     useEffect(() => {
-        console.log("ID do Post: " + id)
         setIsLoading(true)
-
         fetch(`${API_URL}/posts/${id}`)
             .then((response) => response.json())
             .then((json) => setPost(json))
@@ -44,7 +36,7 @@ export default function PostArticle() {
             .then((json) => setComments(json))
             .catch(err => console.log(err))
             .finally(() => setIsLoading(false))
-    }, [])
+    }, [id])
 
     //renderizar o conteúdo do post
     const renderPostContent = () => (
@@ -66,12 +58,11 @@ export default function PostArticle() {
                     <Typography color="textSecondary" variant="subtitle1">29/07/2020</Typography>
                 </div>
             </div>
+
             <Divider light />
 
             <div className="commentsContainer">
-
                 <Typography color="textSecondary" variant="h6" gutterBottom> Comentários</Typography>
-
                 {
                     comments.map(comment => (
                         <div className="comment" key={comment.id}>
@@ -86,18 +77,15 @@ export default function PostArticle() {
                         </div>
                     ))
                 }
-
                 <form className="commentForm" noValidate autoComplete="on">
                     <Typography color="textSecondary" variant="h6" gutterBottom> Deixe o seu comentário.</Typography>
-
                     <TextField margin="dense" fullWidth label="Seu Email" type="email" variant="outlined" />
                     <TextField margin="dense" rows="5" multiline fullWidth label="Sua Mensagem" variant="outlined" />
-                    <div style={{display: "flex", justifyContent: "flex-end", marginTop: 15}}>
+                    <div style={{ display: "flex", justifyContent: "flex-end", marginTop: 15 }}>
                         <Button color="primary" disabled variant="contained">Comentar</Button>
                     </div>
                 </form>
             </div>
-
         </>
     )
 
@@ -106,17 +94,23 @@ export default function PostArticle() {
         <div className={styles.skeletonContainer}>
             <Skeleton variant="rect" width={"100%"} height={400} />
             <div className={styles.divider} />
-            <Skeleton variant="rect" width={"70%"} height={40} />
-            <div className={styles.divider} />
-            <Skeleton variant="rect" width={"100%"} height={100} />
+            <Skeleton variant="rect" width={"100%"} height={30} />
 
             <div style={{ marginBottom: 50 }} />
 
-            <Skeleton variant="rect" width={"100%"} height={50} />
+            <Skeleton variant="circle" width={50} height={50} />
             <div className={styles.divider} />
-            <Skeleton variant="rect" width={"70%"} height={40} />
+            <Skeleton variant="rect" width={"100%"} height={20} />
             <div className={styles.divider} />
-            <Skeleton variant="rect" width={"100%"} height={100} />
+            <Skeleton variant="rect" width={"100%"} height={20} />
+
+            <div style={{ marginBottom: 20 }} />
+
+            <Skeleton variant="circle" width={50} height={50} />
+            <div className={styles.divider} />
+            <Skeleton variant="rect" width={"100%"} height={20} />
+            <div className={styles.divider} />
+            <Skeleton variant="rect" width={"100%"} height={20} />
         </div>
     )
 
@@ -136,34 +130,8 @@ export default function PostArticle() {
 
 
 const useStyles = makeStyles({
-    container: {
-        width: "100%",
-        height: "100vh",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center"
-    },
-    card: {
-
-        marginTop: 20,
-        padding: 20,
-    },
-    cardTopContainer: {
-        display: "flex",
-        justifyContent: "space-beetwen"
-    },
-    title: {
-        fontSize: 64,
-    },
     divider: {
         marginBottom: 5
-    },
-    pagination: {
-        textAlign: "center",
-        display: "flex",
-        justifyContent: "center",
-        marginTop: 30
-
     },
     skeletonContainer: {
         height: "100vh",

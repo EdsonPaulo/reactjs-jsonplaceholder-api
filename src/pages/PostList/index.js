@@ -33,14 +33,10 @@ export default function PostList() {
                 setIsLoading(false)
             })
     }, [])
-
+   
     useEffect(() => {
         paginate()
-    }, [posts])
-
-    useEffect(() => {
-        paginate()
-    }, [page])
+    }, [page, posts])
 
     //tratar a paginação da lista de posts
     const paginate = () => {
