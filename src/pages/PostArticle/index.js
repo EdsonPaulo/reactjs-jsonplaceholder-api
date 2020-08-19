@@ -54,7 +54,7 @@ export default function PostArticle() {
                 <p className="postBody">{post.body}{post.body}{post.body} </p>
                 <p className="postBody">{post.body} </p>
                 <div className="postFooter">
-                    <Typography color="textSecondary" variant="subtitle1">Por Edson Gregório (Sossego)</Typography>
+                    <Typography color="textSecondary" variant="subtitle1">Por Edson Gregório</Typography>
                     <Typography color="textSecondary" variant="subtitle1">29/07/2020</Typography>
                 </div>
             </div>

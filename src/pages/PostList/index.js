@@ -41,7 +41,7 @@ export default function PostList() {
     //tratar a paginação da lista de posts
     const paginate = () => {
         if (posts.length > 0) {
-            let postsAux = posts.slice((page - 1) * 10, 10 * page);
+            const postsAux = posts.slice((page - 1) * 10, 10 * page);
             setIsLoading(false)
             setDisplayPosts(postsAux)
         }
