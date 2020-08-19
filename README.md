@@ -1,6 +1,10 @@
+Aplicação de simulação de blog, simples feita com ReactJs e libs:
+- [MaterialUI](https://material-ui.com/pt/)
+- [JSON Placelhoder](https://jsonplaceholder.typicode.com)
+
 O projeto foi criado com o [Create React App](https://github.com/facebook/create-react-app).
 
-O deploy do projeto encontra-se em [EPG Blog - Sussego Teste](https://sossego-frontend-teste-git-master.edsonpaulo.vercel.app/).
+O deploy do projeto encontra-se em [EPG Blog](https://sossego-frontend-teste-git-master.edsonpaulo.vercel.app/).
 
 
 ## Scripts para executar e testar o projeto localmente
@@ -15,7 +19,3 @@ Para Instalar todas as dependências que o projeto possui (descritos em package.
 
 Para rodar no modo de desenvolvimento<br />
 E acesse [http://localhost:3000](http://localhost:3000) no navegador.
-
-
-
- [EPG Blog - Sussego Teste](https://sossego-frontend-teste.vercel.app//).
